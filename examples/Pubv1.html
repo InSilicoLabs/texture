@@ -58,7 +58,9 @@
                 }, document.body);
 
                 let markupApp = new texture.MarkupApp();
-                markupApp.render();
+                markupApp.getWords(function(){
+                    markupApp.render();
+                });
             }
         }
 
