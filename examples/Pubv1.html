@@ -30,10 +30,22 @@
         }
     </style>
     <script>
-        var texture = window.texture;
+        let url_string = window.location.href;
+        let url = new URL(url_string);
+        let xmlId = url.searchParams.get('id');
+        if(!xmlId){
+            alert('No "id" parameter given')
+        }
+        if(xmlId.endsWith('.xml')){
+            xmlId = xmlId.substr(0,xmlId.length-4);
+        }
+//        alert('xmlId: '+xmlId);
+
+
+        let texture = window.texture;
 
         /* Author Configuration */
-        var configurator = new texture.TextureConfigurator()
+        let configurator = new texture.TextureConfigurator()
             .import(texture.AuthorPackage)
             .setXMLStore(texture.ServerXMLStore);
 
@@ -41,14 +53,12 @@
             window.onload = function () {
                 window.app = texture.Texture.mount({
                     configurator: configurator,
-                    documentId: '186262'
+//                    documentId: '186262'
+                    documentId: xmlId
                 }, document.body);
 
-//                alert(window.app.constructor.name);
-//                window.app = app;
-//                let editorDocument = app.getDocument();
                 let markupApp = new texture.MarkupApp();
-                markupApp.test();
+                markupApp.render();
             }
         }
 
