@@ -2,6 +2,7 @@
 export { default as Texture } from './lib/texture/Texture'
 export { default as TextureConfigurator } from './lib/texture/TextureConfigurator'
 export { default as ExampleXMLStore } from './lib/texture/ExampleXMLStore'
+export { default as ServerXMLStore } from './lib/texture/ServerXMLStore'
 
 // author
 export { default as Author } from './lib/author/Author'
