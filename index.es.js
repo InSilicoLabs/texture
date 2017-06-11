@@ -2,7 +2,7 @@
 export { default as Texture } from './lib/texture/Texture'
 export { default as TextureConfigurator } from './lib/texture/TextureConfigurator'
 export { default as ExampleXMLStore } from './lib/texture/ExampleXMLStore'
-export { default as ServerXMLStore } from './lib/texture/ServerXMLStore'
+
 
 // author
 export { default as Author } from './lib/author/Author'
@@ -15,3 +15,6 @@ export { default as PublisherPackage } from './lib/publisher/PublisherPackage'
 // tagging
 export { default as TaggingPackage } from './lib/tagging/TaggingPackage'
 
+// DMC additions
+export { default as ServerXMLStore } from './lib/texture/ServerXMLStore'
+export { default as MarkupApp } from './lib/dmc/MarkupApp'
