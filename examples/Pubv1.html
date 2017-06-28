@@ -28,6 +28,13 @@
             bottom: 0px;
             top: 100px;
         }
+
+        /*.holds-the-iframe {*/
+            /*background:url(../../../../client/images/spinner.gif) top no-repeat;*/
+        /*}*/
+        /*.holds-the-iframe:after{*/
+            /*content: "Loading Publication . . . ";*/
+        /*}*/
     </style>
     <script>
         let url_string = window.location.href;
@@ -51,17 +58,21 @@
 
         if (typeof window !== 'undefined') {
             window.onload = function () {
+                let element = document.getElementById('message');
+                element.innerHTML = "Loading Publication: "+xmlId;
                 window.app = texture.Texture.mount({
                     configurator: configurator,
 //                    documentId: '186262'
                     documentId: xmlId
                 }, document.body);
 
+                element.innerHTML = "Publication Loaded ("+xmlId+")... Evaluating Links";
+
                 let markupApp = new texture.MarkupApp();
                 markupApp.getWords(function(data){
 //                    alert('should be rendering the callback: '+JSON.stringify(data));
                     markupApp.render(data,function (d2) {
-//                        alert('finisehd callbacks');
+                        // render message is populatinged from withing here
                     });
                 });
             }
@@ -70,6 +81,6 @@
     </script>
 </head>
 <body>
-	<div id="message">Loading...</div>
+	<div id="message">No Publication Selected</div>
 </body>
 </html>
