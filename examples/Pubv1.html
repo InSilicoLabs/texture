@@ -46,6 +46,7 @@
         if(xmlId.endsWith('.xml')){
             xmlId = xmlId.substr(0,xmlId.length-4);
         }
+        let markupApp ;
 //        alert('xmlId: '+xmlId);
 
 
@@ -68,7 +69,7 @@
 
 //                element.innerHTML = "Publication Loaded ("+xmlId+")... Evaluating Links";
 //
-//                let markupApp = new texture.MarkupApp();
+                this.markupApp = new texture.MarkupApp();
 //                markupApp.getWords(function(data){
 ////                    alert('should be rendering the callback: '+JSON.stringify(data));
 //                    markupApp.render(data,function (d2) {
@@ -77,6 +78,41 @@
 //                });
             }
         }
+        function receiveMessage(event)
+        {
+//            alert(JSON.stringify(event));
+
+            if(!event.isTrusted){
+                alert('not trusted');
+                return ;
+            }
+            let eventData = event.data;
+            let action = eventData.action ;
+            let publication = eventData.publication;
+            let terms = eventData.terms;
+            console.log("Action: " + action);
+            console.log("Publication");
+            console.log(publication);
+            console.log("Terms");
+            console.log(terms);
+            console.log(terms.length);
+            for(t in terms){
+                console.log(terms[t].value);
+            }
+
+            if(action=="linkPub"){
+                this.markupApp.searchWords(terms)
+            }
+
+            // Do we trust the sender of this message?  (might be
+            // different from what we originally opened, for example).
+            // if (event.origin !== "http://example.com")
+            //     return;
+
+            // event.source is popup
+            // event.data is "hi there yourself!  the secret response is: rheeeeet!"
+        }
+        window.addEventListener("message", receiveMessage, false);
 
     </script>
 </head>
