@@ -95,7 +95,9 @@
             console.log(publication);
             console.log("Terms");
             console.log(terms);
-            console.log(terms.length);
+            if(terms){
+                console.log(terms.length);
+            }
             for(t in terms){
                 console.log(terms[t].value);
             }
