@@ -76,6 +76,7 @@
 //                        // render message is populatinged from withing here
 //                    });
 //                });
+				this.configurator = configurator;
             }
         }
         function receiveMessage(event)
@@ -105,8 +106,7 @@
             if(action=="linkPub"){
                 this.markupApp.searchWords(terms);
         	} else if(action=="navigate") {
-				console.log(this.texture);
-	        	//this.texture.send('tocEntrySelected', terms.path);
+				window.app.childNodes[0].send('tocEntrySelected', terms.path);
 			}
 
             // Do we trust the sender of this message?  (might be
