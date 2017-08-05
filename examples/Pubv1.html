@@ -89,7 +89,19 @@
             }
             let eventData = event.data;
             let action = eventData.action ;
+            let publication = eventData.publication;
             let terms = eventData.terms;
+            console.log("Action: " + action);
+            console.log("Publication");
+            console.log(publication);
+            console.log("Terms");
+            console.log(terms);
+            if(terms){
+                console.log(terms.length);
+            }
+            for(t in terms){
+                console.log(terms[t].value);
+            }
 
             if(action=="linkPub"){
                 this.markupApp.searchWords(terms);
