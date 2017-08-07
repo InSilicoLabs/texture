@@ -1,6 +1,10 @@
-.sc-ext-link { color: #2079DC;
-	background-color: aqua;
+.sc-ext-link { 
+	color: #2079DC;
  }
+
+.ext-link-background {
+	background-color: aqua;
+}
 
 .ext-link-select {
 	background: transparent;
