@@ -10,3 +10,9 @@
 	background: transparent;
 	font-color: white;
 }
+
+.sc-prose-editor-overlay-tools > .se-active-tools {
+  border-radius: 5px;
+  background: #5bc0de;
+  padding: 5px;
+}
