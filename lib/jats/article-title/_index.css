@@ -2,5 +2,6 @@
   padding-bottom: var(--default-padding);
   font-weight: var(--strong-font-weight);
   letter-spacing: var(--heading-letterspacing);
-  font-size: var(--title-font-size);
+/*  font-size: var(--title-font-size);*/
+  font-size: 24px;
 }
