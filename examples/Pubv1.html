@@ -106,8 +106,16 @@
             if(action=="linkPub"){
                 this.markupApp.searchWords(terms);
         	} else if(action=="navigate") {
-				window.app.childNodes[0].contentHighlights.set({'paragraphs': [terms.path]})
 				window.app.childNodes[0].send('tocEntrySelected', terms.path);
+			} else if(action == "setHighlights") {
+				let hl = {}
+				hl['paragraphs'] = []
+				for (let p in terms) {
+					hl['paragraphs'].push(terms[p])
+				}
+				console.log(hl)
+				window.app.childNodes[0].contentHighlights.set(hl)
+
 			}
 
             // Do we trust the sender of this message?  (might be
