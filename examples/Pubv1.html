@@ -76,7 +76,6 @@
 //                        // render message is populatinged from withing here
 //                    });
 //                });
-				this.configurator = configurator;
             }
         }
         function receiveMessage(event)
@@ -113,12 +112,10 @@
 				for (let p in terms) {
 					hl['paragraphs'].push(terms[p])
 				}
-				console.log(hl)
 				window.app.childNodes[0].contentHighlights.set(hl)
 
 			} else if(action == "deleteExtLink") {
 				let nodeId = terms
-				console.log(window.app.childNodes[0])
 				//window.app.childNodes[0].documentSession.transaction(function(tx, args) {
 			    //  tx.delete(nodeId)
 			    //})
