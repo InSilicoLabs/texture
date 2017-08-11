@@ -116,6 +116,14 @@
 				console.log(hl)
 				window.app.childNodes[0].contentHighlights.set(hl)
 
+			} else if(action == "deleteExtLink") {
+				let nodeId = terms
+				console.log(window.app.childNodes[0])
+				//window.app.childNodes[0].documentSession.transaction(function(tx, args) {
+			    //  tx.delete(nodeId)
+			    //})
+				window.app.childNodes[0].doc.delete(nodeId)
+				window.app.rerender()	
 			}
 
             // Do we trust the sender of this message?  (might be
