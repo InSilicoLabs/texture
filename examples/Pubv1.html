@@ -91,16 +91,7 @@
             let publication = eventData.publication;
             let terms = eventData.terms;
             console.log("Action: " + action);
-            console.log("Publication");
-            console.log(publication);
-            console.log("Terms");
-            console.log(terms);
-            if(terms){
-                console.log(terms.length);
-            }
-            //for(t in terms){
-            //    console.log(terms[t].value);
-            //}
+            console.log("Terms: " + terms);
 
             if(action=="linkPub"){
                 this.markupApp.searchWords(terms);
@@ -112,15 +103,14 @@
 				for (let p in terms) {
 					hl['paragraphs'].push(terms[p])
 				}
+				window.app.props.highlights = hl
 				window.app.childNodes[0].contentHighlights.set(hl)
 
 			} else if(action == "deleteExtLink") {
-				let nodeId = terms
-				//window.app.childNodes[0].documentSession.transaction(function(tx, args) {
-			    //  tx.delete(nodeId)
-			    //})
+				let nodeId = terms.extLinkId
 				window.app.childNodes[0].doc.delete(nodeId)
-				window.app.rerender()	
+				window.app.childNodes[0].rerender()
+				console.log(window.app.childNodes[0].doc)	
 			}
 
             // Do we trust the sender of this message?  (might be
