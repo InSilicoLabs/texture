@@ -110,8 +110,9 @@
 				let nodeId = terms.extLinkId
 				window.app.childNodes[0].doc.delete(nodeId)
 				window.app.childNodes[0].rerender()
-				window.app.documentSession.save()
-				console.log(window.app.childNodes[0])	
+				console.log(window.app)	
+
+				window.app.state.documentSession.save()
 			}
 
             // Do we trust the sender of this message?  (might be
