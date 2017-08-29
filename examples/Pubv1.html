@@ -108,9 +108,12 @@
 
 			} else if(action == "deleteExtLink") {
 				let nodeId = terms.extLinkId
-				window.app.childNodes[0].doc.delete(nodeId)
-				window.app.childNodes[0].rerender()
-				console.log(window.app)	
+				//window.app.childNodes[0].doc.delete(nodeId)
+				//window.app.childNodes[0].rerender()
+								window.app.state.documentSession.transaction(function(tx, args) {
+					tx.delete(nodeId)
+				})
+				console.log(window.app.state.documentSession.isDirty())	
 
 				window.app.state.documentSession.save()
 			}
