@@ -100,14 +100,16 @@
 				window.app.childNodes[0].send('tocEntrySelected', terms.path);
 			} else if(action == "setHighlights") {
 				let hl = {}
-				hl['paragraphs'] = []
+				hl['ext-links'] = []
 				for (let p in terms) {
-					hl['paragraphs'].push(terms[p])
+					hl['ext-links'].push(terms[p])
 				}
-				window.app.props.highlights = hl
-				setTimeout(function() {
-				window.app.childNodes[0].contentHighlights.set(hl)
-				}, 1000)
+				if(hl['ext-links'].length > 0) {
+					console.log("timeout to allow pub to load")
+					setTimeout(function() {
+						window.app.childNodes[0].contentHighlights.set(hl)
+					}, 500)
+				}
 			} else if(action == "deleteExtLink") {
 				let nodeId = terms.extLinkId
 				window.app.state.documentSession.transaction(function(tx, args) {
