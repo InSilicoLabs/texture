@@ -76,8 +76,9 @@
 //                        // render message is populatinged from withing here
 //                    });
 //                });
+				
             }
-        }
+		}
         function receiveMessage(event)
         {
 //            alert(JSON.stringify(event));
@@ -104,16 +105,14 @@
 					hl['paragraphs'].push(terms[p])
 				}
 				window.app.props.highlights = hl
+				setTimeout(function() {
 				window.app.childNodes[0].contentHighlights.set(hl)
-
+				}, 1000)
 			} else if(action == "deleteExtLink") {
 				let nodeId = terms.extLinkId
-				//window.app.childNodes[0].doc.delete(nodeId)
-				//window.app.childNodes[0].rerender()
-								window.app.state.documentSession.transaction(function(tx, args) {
+				window.app.state.documentSession.transaction(function(tx, args) {
 					tx.delete(nodeId)
 				})
-				console.log(window.app.state.documentSession.isDirty())	
 
 				window.app.state.documentSession.save()
 			}
@@ -127,6 +126,9 @@
             // event.data is "hi there yourself!  the secret response is: rheeeeet!"
         }
         window.addEventListener("message", receiveMessage, false);
+			 window.parent.postMessage({
+        		    action: 'setHighlights'
+        			}, "*");
 
     </script>
 </head>
