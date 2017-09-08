@@ -117,6 +117,11 @@
 				})
 
 				window.app.state.documentSession.save()
+			} else if(action == "updateLink") {
+				window.app.state.documentSession.transaction(function(tx, args) {
+					tx.set([terms.extLinkId, 'hrefLink'], terms.link)
+				})
+				window.app.state.documentSession.save()
 			}
 
             // Do we trust the sender of this message?  (might be
