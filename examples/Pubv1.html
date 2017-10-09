@@ -122,6 +122,9 @@
 					tx.set([terms.extLinkId, 'hrefLink'], terms.link)
 				})
 				window.app.state.documentSession.save()
+			} else if(action == "applyRules") {
+				this.markupApp.applyRules(eventData.ruleSet)
+			
 			}
 
             // Do we trust the sender of this message?  (might be
