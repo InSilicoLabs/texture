@@ -46,16 +46,20 @@
         if(xmlId.endsWith('.xml')){
             xmlId = xmlId.substr(0,xmlId.length-4);
         }
-        let markupApp ;
-//        alert('xmlId: '+xmlId);
+        let baseServerUrl = url.searchParams.get('linkServer');
+        if(!baseServerUrl){
+            alert('No "linkServer" parameter given')
+        }
 
+        let markupApp ;
 
         let texture = window.texture;
+        let xmlStore = texture.ServerXMLStore;
 
         /* Author Configuration */
         let configurator = new texture.TextureConfigurator()
             .import(texture.AuthorPackage)
-            .setXMLStore(texture.ServerXMLStore);
+            .setXMLStore(xmlStore);
 
         if (typeof window !== 'undefined') {
             window.onload = function () {
@@ -63,26 +67,17 @@
                 element.innerHTML = "Loading Publication: "+xmlId;
                 window.app = texture.Texture.mount({
                     configurator: configurator,
-//                    documentId: '186262'
                     documentId: xmlId
                 }, document.body);
-
-//                element.innerHTML = "Publication Loaded ("+xmlId+")... Evaluating Links";
-//
                 this.markupApp = new texture.MarkupApp();
-//                markupApp.getWords(function(data){
-////                    alert('should be rendering the callback: '+JSON.stringify(data));
-//                    markupApp.render(data,function (d2) {
-//                        // render message is populatinged from withing here
-//                    });
-//                });
-				
             }
 		}
+		function getServerBaseUrl() {
+            return baseServerUrl ;
+        }
+
         function receiveMessage(event)
         {
-//            alert(JSON.stringify(event));
-
             if(!event.isTrusted){
                 alert('not trusted');
                 return ;
