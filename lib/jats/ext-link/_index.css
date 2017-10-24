@@ -7,6 +7,27 @@
 	background-color: aqua;
 }
 
+.ext-link-green {
+	border-radius: .25rem;
+	background-color: #28a745;
+	color: #fff;
+	padding: .15rem;
+}
+
+.ext-link-yellow {
+	border-radius: .25rem;
+	background-color: #ffc107;
+	color: #fff;
+	padding: .15rem;
+}
+
+.ext-link-red {
+	border-radius: .25rem;
+	background-color: #dc3545;
+	color: #fff;
+	padding: .15rem;
+}
+
 .ext-link-select {
 	background: transparent;
 	font-color: white;
