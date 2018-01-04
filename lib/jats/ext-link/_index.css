@@ -33,6 +33,10 @@
 	font-color: white;
 }
 
+.ext-link-focus {
+	border: 2px solid black;
+}
+
 .sc-prose-editor-overlay-tools > .se-active-tools {
   border-radius: 5px;
   background: #5bc0de;

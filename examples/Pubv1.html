@@ -92,7 +92,15 @@
             if(action=="linkPub"){
                 this.markupApp.searchWords(terms);
         	} else if(action=="navigate") {
+				
 				window.app.childNodes[0].send('tocEntrySelected', terms.path);
+			    let extLink = window.app.childNodes[0].refs.contentPanel.find(`[data-id="${terms.path}"]`)
+				extLink.addClass('ext-link-focus')
+				extLink = window.app.childNodes[0].refs.contentPanel.find(`[data-id="${terms.prev}"]`)
+				if(extLink) {
+					extLink.removeClass('ext-link-focus')
+				}
+
 			} else if(action == "setHighlights") {
 				let hl = {}
 				hl['ext-links'] = []
