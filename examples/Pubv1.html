@@ -95,6 +95,9 @@
 				
 				window.app.childNodes[0].send('tocEntrySelected', terms.path);
 			    let extLink = window.app.childNodes[0].refs.contentPanel.find(`[data-id="${terms.path}"]`)
+				let scroll = window.app.childNodes[0].refs.contentPanel.getScrollableElement()
+				let pos = window.app.childNodes[0].refs.contentPanel.getScrollPosition()
+				scroll.setProperty('scrollTop', pos - 250)
 				extLink.addClass('ext-link-focus')
 				extLink = window.app.childNodes[0].refs.contentPanel.find(`[data-id="${terms.prev}"]`)
 				if(extLink) {
