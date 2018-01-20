@@ -99,11 +99,12 @@
 				let pos = window.app.childNodes[0].refs.contentPanel.getScrollPosition()
 				scroll.setProperty('scrollTop', pos - 250)
 				extLink.addClass('ext-link-focus')
-				extLink = window.app.childNodes[0].refs.contentPanel.find(`[data-id="${terms.prev}"]`)
-				if(extLink) {
-					extLink.removeClass('ext-link-focus')
+				if(terms.prev != terms.path) {
+					extLink = window.app.childNodes[0].refs.contentPanel.find(`[data-id="${terms.prev}"]`)
+					if(extLink) {
+						extLink.removeClass('ext-link-focus')
+					}
 				}
-
 			} else if(action == "setHighlights") {
 				let hl = {}
 				hl['ext-links'] = []
@@ -131,6 +132,12 @@
 			} else if(action == "applyRule") {
 				this.markupApp.applyRule(eventData.rule)
 			
+			} else if(action == "hlEntity") {
+				for (let path in terms.paths) {
+					
+					let extLink = window.app.childNodes[0].refs.contentPanel.find(`[data-id="${terms.paths[path]}"]`)
+					extLink.addClass('ext-link-focus')
+				}
 			}
 
             // Do we trust the sender of this message?  (might be
