@@ -8,24 +8,27 @@
 }
 
 .ext-link-green {
-	border-radius: .25rem;
+/*	border-radius: .25rem;
 	background-color: #28a745;
 	color: #fff;
-	padding: .15rem;
+	padding: .15rem;*/
+	border-bottom: 3px solid #28a745;
 }
 
 .ext-link-yellow {
-	border-radius: .25rem;
+/*	border-radius: .25rem;
 	background-color: #ffc107;
 	color: #fff;
-	padding: .15rem;
+	padding: .15rem;*/
+	border-bottom: 3px solid #ffc107
 }
 
 .ext-link-red {
-	border-radius: .25rem;
+/*	border-radius: .25rem;
 	background-color: #dc3545;
 	color: #fff;
-	padding: .15rem;
+	padding: .15rem;*/
+	border-bottom: 3px solid #dc3545;
 }
 
 .ext-link-select {
@@ -34,7 +37,8 @@
 }
 
 .ext-link-focus {
-	border: 2px solid black;
+/*	border: 2px solid black;*/
+	background: silver;
 }
 
 .sc-prose-editor-overlay-tools > .se-active-tools {
