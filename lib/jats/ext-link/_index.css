@@ -12,6 +12,7 @@
 	background-color: #28a745;
 	color: #fff;
 	padding: .15rem;*/
+	color: #28a745;
 	border-bottom: 3px solid #28a745;
 }
 
@@ -20,15 +21,17 @@
 	background-color: #ffc107;
 	color: #fff;
 	padding: .15rem;*/
-	border-bottom: 3px solid #ffc107
+	color: #0275d8;
+	border-bottom: 3px solid #0275d8;
 }
 
 .ext-link-red {
 /*	border-radius: .25rem;
 	background-color: #dc3545;
 	color: #fff;
-	padding: .15rem;*/
-	border-bottom: 3px solid #dc3545;
+	padding: .15rem;
+	border-bottom: 3px solid #dc3545;*/
+	color: #dc3545;
 }
 
 .ext-link-select {
@@ -38,7 +41,7 @@
 
 .ext-link-focus {
 /*	border: 2px solid black;*/
-	background: silver;
+	background: #ffc107;
 }
 
 .sc-prose-editor-overlay-tools > .se-active-tools {
