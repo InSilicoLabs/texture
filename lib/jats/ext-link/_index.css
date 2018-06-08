@@ -26,6 +26,11 @@
 	border-bottom: 3px solid #0275d8;
 }
 
+.ext-link-yellow .sc-superscript {
+	border-bottom: none;
+	border-bottom: 3px solid #0275d8;
+}
+
 .ext-link-red {
 /*	border-radius: .25rem;
 	background-color: #dc3545;
