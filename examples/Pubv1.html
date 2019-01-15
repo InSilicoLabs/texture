@@ -88,9 +88,9 @@
             let terms = eventData.terms;
             console.log("Action: " + action);
 //            console.log("Terms: " + terms);
-
             if(action=="linkPub"){
-                this.markupApp.searchWords(terms);
+				
+                this.markupApp.searchWords(terms, eventData.linkItalics);
         	} else if(action=="navigate") {
 				
 				window.app.childNodes[0].send('tocEntrySelected', terms.path);
